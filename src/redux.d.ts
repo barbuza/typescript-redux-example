@@ -4,7 +4,9 @@ declare module Redux {
     type: string;
   }
 
-  type Dispatchable = Action;
+  interface Dispatchable extends Action {
+
+  }
 
   interface Reducer<T> {
 
@@ -12,7 +14,9 @@ declare module Redux {
 
   }
 
-  type Dispatch = (action: Dispatchable) => any;
+  interface Dispatch {
+    (action: Dispatchable): any;
+  }
 
   interface Middleware {
 

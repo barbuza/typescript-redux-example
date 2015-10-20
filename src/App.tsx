@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { BAR_ACTION } from './actionTypes';
+import { BAR_ACTION, FOO_ACTION, RESET_ACTION } from './actionTypes';
 
 interface IAppStore {
   storeFoo?: string;
@@ -13,6 +13,8 @@ interface IAppProps {
 
 interface IAppDispatch {
   dispatchBar?(): void;
+  dispatchFoo?(): void;
+  dispatchReset?(): void;
 }
 
 function mapState(state: ReduxState): IAppStore {
@@ -25,6 +27,15 @@ function mapDispatch(dispatch: Redux.Dispatch): IAppDispatch {
   return {
     dispatchBar: () => dispatch({
       type: BAR_ACTION
+    }),
+
+    dispatchFoo: () => dispatch({
+      type: FOO_ACTION,
+      payload: 'foo'
+    } as Redux.Action),
+
+    dispatchReset: () => dispatch({
+      type: RESET_ACTION
     })
   };
 }
@@ -32,17 +43,23 @@ function mapDispatch(dispatch: Redux.Dispatch): IAppDispatch {
 export class App extends React.Component<IAppProps & IAppStore & IAppDispatch, {}> {
 
   render() {
-    const { dispatchBar, propsFoo, storeFoo } = this.props;
+    const { dispatchBar, dispatchFoo, dispatchReset, propsFoo, storeFoo } = this.props;
     return (
-      <dl>
-        <dt>props2</dt>
-        <dd>{propsFoo}</dd>
+      <div>
+        <dl>
+          <dt>props</dt>
+          <dd>{propsFoo}</dd>
 
-        <dt>store</dt>
-        <dd>{storeFoo}</dd>
+          <dt>store</dt>
+          <dd>{storeFoo}</dd>
+        </dl>
 
-        <button onClick={dispatchBar}>bar</button>
-      </dl>
+        <div>
+          <button onClick={dispatchFoo}>foo</button>
+          <button onClick={dispatchBar}>bar</button>
+          <button onClick={dispatchReset}>reset</button>
+        </div>
+      </div>
     );
   }
 
