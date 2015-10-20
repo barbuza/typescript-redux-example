@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "charset": "utf-8",
+    "noImplicitAny": true,
+    "jsx": "react",
+    "target": "es6",
+    "experimentalDecorators": true,
+    "experimentalAsyncFunctions": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
