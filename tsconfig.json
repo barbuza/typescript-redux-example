@@ -7,7 +7,8 @@
     "experimentalDecorators": true,
     "experimentalAsyncFunctions": true,
     "emitDecoratorMetadata": true,
-    "sourceMap": true
+    "sourceMap": false,
+    "outDir": "es6"
   },
   "exclude": [
     "node_modules"

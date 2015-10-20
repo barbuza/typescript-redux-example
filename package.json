@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "postinstall": "tsd reinstall",
-    "start": "tslint src/*.ts* && tsc && babel-node src/client"
+    "clean": "rm -rf es6 lib",
+    "tsc": "tsc",
+    "babel": "babel -q es6 --out-dir lib",
+    "start": "npm run clean && npm run tsc && npm run babel && node lib"
   },
   "dependencies": {
     "babel": "^5.8.23",

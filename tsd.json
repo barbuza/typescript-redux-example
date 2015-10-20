@@ -10,9 +10,6 @@
     },
     "react-dom/react-dom.d.ts": {
       "commit": "85fb1aa205b1a113bdbaeb72199d1c8692b5f143"
-    },
-    "redux/redux.d.ts": {
-      "commit": "85fb1aa205b1a113bdbaeb72199d1c8692b5f143"
     }
   }
 }
